@@ -7,6 +7,14 @@
 CAMERA_PATH := device/xiaomi/camera
 CAMERA_VENDOR_PATH := vendor/xiaomi/camera
 
+# Boot Jars
+PRODUCT_BOOT_JARS += \
+    camerax-vendor-extensions \
+    vendor.xiaomi.hardware.misys-V1.0-java \
+    vendor.xiaomi.hardware.misys-V2.0-java \
+    vendor.xiaomi.hardware.misys-V4.0-java \
+    vendor.xiaomi.hardware.misys.V3_0
+
 # Permissions
 PRODUCT_COPY_FILES += \
      $(call find-copy-subdir-files,*,$(CAMERA_PATH)/configs/permissions/,$(TARGET_COPY_OUT_SYSTEM)/etc)
