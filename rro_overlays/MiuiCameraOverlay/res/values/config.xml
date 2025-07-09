@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Leica Camera Overlay Configuration for Poco F3 -->
+<!-- Leica Camera Overlay Configuration for Pad 6 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
@@ -45,9 +45,5 @@
 
    <!-- Enable AI for Front Camera by default -->
    <bool name="pref_frontAI_default">true</bool>
-
-   <!-- Enable 0.5x UltraWide lens by default -->
-   <!-- 0 - Default, 1 - 0.5x, 2 - 0.6x -->
-   <string name="pref_uw_default">1</string>
 
 </resources>

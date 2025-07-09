@@ -1,6 +1,19 @@
 # PostProcessing
 /(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.campostproc@1\.0-service                       u:object_r:hal_camerapostproc_xiaomi_default_exec:s0
 
+
+# Mi Pad 6 Addons
+/vendor/lib(64)?/libSnpeHtpPrepare\.so                      u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libSnpeHtpV68Stub\.so                      u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libSnpeHtpV69Stub\.so                      u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libcalculator_htp\.so                      u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libsnpe_dsp_domains_v3\.so                 u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/rfsa/adsp/libSnpeHtpV68Skel\.so            u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/rfsa/adsp/libSnpeHtpV69Skel\.so            u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/rfsa/adsp/libsnpe_dsp_v68_domains_v3_skel\.so    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libmiocr\.so                               u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libcamlog\.so                              u:object_r:same_process_hal_file:s0
+
 # General Rules
 /vendor/lib(64)?/libmialgoengine\.so                        u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmpbase\.so                              u:object_r:same_process_hal_file:s0

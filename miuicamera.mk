@@ -26,7 +26,8 @@ PRODUCT_COPY_FILES += \
 # Device-Features
 PRODUCT_COPY_FILES += \
      $(CAMERA_PATH)/configs/device_features/alioth.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/device_features/alioth.xml \
-     $(CAMERA_PATH)/configs/device_features/aliothin.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/device_features/aliothin.xml
+     $(CAMERA_PATH)/configs/device_features/aliothin.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/device_features/aliothin.xml \
+     $(CAMERA_PATH)/configs/device_features/pipa.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/device_features/pipa.xml
 
 # Shims
 PRODUCT_PACKAGES += \
