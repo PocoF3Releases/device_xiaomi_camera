@@ -1,0 +1,15 @@
+--- a/smali_classes7/com/mi/device/Alioth.smali
++++ b/smali_classes7/com/mi/device/Alioth.smali
+@@ -1,3 +1,12 @@
+ .class public Lcom/mi/device/Alioth;
+ .super Lcom/mi/device/Common;
+ .source "Alioth.java"
++
++# Limit binned photo output to the active sensor array.
++.method public Q2()Z
++    .locals 1
++
++    const/4 v0, 0x1
++
++    return v0
++.end method
