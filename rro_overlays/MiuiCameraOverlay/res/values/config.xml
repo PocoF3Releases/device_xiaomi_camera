@@ -50,6 +50,9 @@
    <!-- Enable AI for Front Camera by default -->
    <bool name="pref_frontAI_default">true</bool>
 
+   <!-- Enable the standalone macro lens: 0 = disabled, 1 = Standalone, 2 = Tele. -->
+   <string name="pref_macro_default" translatable="false">1</string>
+
    <!-- Enable 0.5x UltraWide lens by default -->
    <!-- 0 - Default, 1 - 0.5x, 2 - 0.6x -->
    <string name="pref_uw_default">1</string>
