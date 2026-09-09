@@ -7,3 +7,7 @@ allow platform_app_36 miui_camera_data_file:file { create_file_perms execute };
 allow platform_app_36 miui_camera_data_file:lnk_file create_file_perms;
 allow platform_app_36 miui_camera_data_file:fifo_file create_file_perms;
 allow platform_app_36 miui_camera_data_file:sock_file create_file_perms;
+
+# MediaRecorder receives an already-open temporary video file from Camera.
+# Match mediaserver's standard app-data FD permissions, without path access.
+allow mediaserver miui_camera_data_file:file { append getattr ioctl lock map read write };
