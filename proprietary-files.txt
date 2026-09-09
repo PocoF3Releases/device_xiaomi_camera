@@ -19,6 +19,14 @@ vendor/bin/f2player
 vendor/lib64/libarcsat.so
 vendor/lib64/libsupermoon.so
 
+# Face3D & MFSR HVX manager
+vendor/etc/face3d/qcnn_concat_file_model-0324_2_encrypted
+vendor/lib64/libFace3DTA.so
+vendor/lib64/libFace3D_hlos.so
+vendor/lib64/libQ6MSFR_manager_stub.so
+vendor/lib64/libcamera2ndk_vendor.so
+vendor/lib64/libface3d_dev.so
+
 # Device Camera Dependencies & Overwrites
 system/lib64/libmqsas.so
 system_ext/lib64/libcameraimpl.so:system/lib64/libcameraimpl.so
