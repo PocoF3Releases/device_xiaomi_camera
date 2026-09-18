@@ -88,6 +88,9 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
 PRODUCT_PACKAGES += \
      gralloc.qcom
 
+# MiSys Java clients and JNI binding (not part of the boot classpath)
+PRODUCT_PACKAGES += xiaomi-misys
+
 # MiSys HIDL deps
 PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
