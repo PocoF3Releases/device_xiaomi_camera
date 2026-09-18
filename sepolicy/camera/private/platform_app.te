@@ -1,4 +1,4 @@
-allow platform_app {
+allow miui_camera_platform_domain {
     DisplayFeatureControl
     miui_multi_display
     perfshielder

@@ -1,4 +1,0 @@
-runtime_resource_overlay {
-    name: "MiuiCameraOverlayLos",
-    product_specific: true,
-}

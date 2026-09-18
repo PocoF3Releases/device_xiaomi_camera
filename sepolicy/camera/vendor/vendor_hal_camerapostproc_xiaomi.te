@@ -1,1 +1,1 @@
-allow vendor_hal_camerapostproc_xiaomi platform_app:binder transfer;
+allow vendor_hal_camerapostproc_xiaomi miui_camera_platform_domain:binder transfer;

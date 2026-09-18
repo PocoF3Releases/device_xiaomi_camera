@@ -9,7 +9,9 @@ CAMERA_VENDOR_PATH := vendor/xiaomi/camera
 
 # Permissions
 PRODUCT_COPY_FILES += \
-     $(call find-copy-subdir-files,*,$(CAMERA_PATH)/configs/permissions/,$(TARGET_COPY_OUT_SYSTEM)/etc)
+     $(call find-copy-subdir-files,*,$(CAMERA_PATH)/configs/permissions/default-permissions/,$(TARGET_COPY_OUT_SYSTEM)/etc/default-permissions) \
+     $(call find-copy-subdir-files,*,$(CAMERA_PATH)/configs/permissions/permissions/,$(TARGET_COPY_OUT_SYSTEM)/etc/permissions) \
+     $(call find-copy-subdir-files,*,$(CAMERA_PATH)/configs/permissions/sysconfig/,$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig)
 
 # CameraX Config Overwrite
 PRODUCT_COPY_FILES += \
@@ -54,7 +56,8 @@ PRODUCT_SYSTEM_PROPERTIES += \
    log.tag.CHIUSECASE=ERROR
 
 PRODUCT_VENDOR_PROPERTIES += \
-   persist.vendor.camera.logInfoMask=false
+   persist.vendor.camera.logInfoMask=0 \
+   persist.vendor.camera.privapp.list=com.android.camera
 
 # Sepolicy Camera
 BOARD_VENDOR_SEPOLICY_DIRS += \
@@ -95,13 +98,6 @@ PRODUCT_PACKAGES += \
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
-    MiuiCameraOverlay \
-    MiuiCameraOverlayLos \
-    MiuiCameraOverlayAosp
-
-# System Properties
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.vendor.camera.privapp.list=com.android.camera \
-    ro.com.google.lens.oem_camera_package=com.android.camera
+    MiuiCameraOverlay
 
 $(call inherit-product, $(CAMERA_VENDOR_PATH)/camera-vendor.mk)

@@ -1,4 +1,4 @@
-binder_call(hal_camera_default, platform_app)
+binder_call(hal_camera_default, miui_camera_platform_domain)
 
 allow hal_camera_default mnt_vendor_file:dir { search };
 allow hal_camera_default proc_stat:file { open read };
