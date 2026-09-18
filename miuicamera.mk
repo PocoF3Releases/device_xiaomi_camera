@@ -17,6 +17,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
      $(CAMERA_PATH)/configs/camera/camxoverridesettings.txt:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camxoverridesettings.txt
 
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    $(CAMERA_PATH)/configs/vintf/misys_framework_matrix.xml
+
 # Camera Extensions
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.camerax.extensions.enabled=true
