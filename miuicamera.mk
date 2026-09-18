@@ -60,6 +60,14 @@ PRODUCT_VENDOR_PROPERTIES += \
 BOARD_VENDOR_SEPOLICY_DIRS += \
     $(CAMERA_PATH)/sepolicy/camera/vendor
 
+# Android 17 splits legacy platform apps into platform_app_36. Older
+# policy trees use platform_app. Keep the seapp domain and allow rules aligned.
+ifneq ($(wildcard system/sepolicy/private/platform_app_36.te),)
+BOARD_SEPOLICY_M4DEFS += miui_camera_platform_domain=platform_app_36
+else
+BOARD_SEPOLICY_M4DEFS += miui_camera_platform_domain=platform_app
+endif
+
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
     $(CAMERA_PATH)/sepolicy/camera/private
 
