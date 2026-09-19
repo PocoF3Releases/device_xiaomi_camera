@@ -4,7 +4,6 @@
 system/priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=GrapheneCamera,Camera,Camera2,Aperture,GoogleCameraGo
 
 # Device Prebuilts
-system/etc/public.libraries-xiaomi.txt
 system/lib64/libcamera_algoup_jni.xiaomi.so
 system/lib64/libcamera_mianode_jni.xiaomi.so
 system/lib64/libmicampostproc_client.so
@@ -112,37 +111,6 @@ vendor/etc/sensors/proto/sns_wrist_tilt_gesture.proto
 system/lib64/libmqsas.so
 system_ext/lib64/libcameraimpl.so:system/lib64/libcameraimpl.so
 system_ext/lib64/libopencl-camera.so:system/lib64/libopencl-camera.so
-
-# MiSys
-system/lib64/libmisys_jni.xiaomi.so
-system/lib64/vendor.xiaomi.hardware.misys@1.0.so;MODULE_SUFFIX=_system
-system/lib64/vendor.xiaomi.hardware.misys@2.0.so;MODULE_SUFFIX=_system
-system/lib64/vendor.xiaomi.hardware.misys@3.0.so;MODULE_SUFFIX=_system
-system/lib64/vendor.xiaomi.hardware.misys@4.0.so;MODULE_SUFFIX=_system
-vendor/bin/hw/vendor.xiaomi.hardware.misys@1.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@2.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@3.0-service
-vendor/bin/hw/vendor.xiaomi.hardware.misys@4.0-service
-vendor/etc/init/vendor.xiaomi.hardware.misys@1.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@2.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@3.0-service.rc
-vendor/etc/init/vendor.xiaomi.hardware.misys@4.0-service.rc
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@1.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@2.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@3.0.xml
-vendor/etc/vintf/manifest/vendor.xiaomi.hardware.misys@4.0.xml
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@1.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@3.0-impl.so
-vendor/lib64/hw/vendor.xiaomi.hardware.misys@4.0-impl.so
-vendor/lib64/vendor.xiaomi.hardware.misys@1.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@2.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@3.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@4.0.so
-
-# MiSys Deps
-vendor/lib64/libcheckpid.so
-vendor/lib64/liblogwrap_vendor.so
 
 # Camera Dependencies
 vendor/camera/fonts/FZMiaoWuJW.ttf

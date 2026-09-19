@@ -23,9 +23,7 @@ the device-common tree. It currently provides:
 - Xiaomi Camera permissions, default permissions and sysconfig entries
 - CameraX vendor-extension configuration and CamX override settings
 - alioth / aliothin device-feature configuration
-- Camera and MiSys SELinux policy
-- MiSys Java compatibility clients and JNI-facing library declaration
-- MiSys HIDL framework compatibility matrix
+- Camera SELinux policy
 - Camera compatibility shims and vendor-library symlinks
 - `MiuiCameraOverlay`
 - Camera-related system and vendor properties
@@ -55,18 +53,11 @@ include device/xiaomi/camera/miuicamera.mk
 ```
 
 That include brings in the camera packages, overlays, properties, SELinux
-directories and MiSys compatibility metadata maintained by this repository.
+directories maintained by this repository.
 
 ## Compatibility ownership
 
-Do **not** duplicate the camera-specific MiSys entries in
-`device/xiaomi/sm8250-common`.
-
-`miuicamera.mk` registers:
-
-```text
-configs/vintf/misys_framework_matrix.xml
-```
+The mod stores watermarks in app-private storage; it does not require MiSys.
 
 Legacy DisplayConfig compatibility is owned by the sm8250 display HAL. The
 display composer publishes a real `vendor.display.config@1.9/default`
@@ -78,10 +69,9 @@ matrix or pretend that a compatibility matrix provides the runtime service.
 
 ```text
 configs/       Camera configs, permissions, device features and VINTF fragments
-misys/        MiSys Java compatibility clients
 patches/      Maintained Xiaomi Camera compatibility patches
 rro_overlays/ Xiaomi Camera resource overlays
-sepolicy/     Camera and MiSys SELinux policy
+sepolicy/     Camera SELinux policy
 shims/        Compatibility shims
 miuicamera.mk Main product integration entry point
 ```

@@ -17,9 +17,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
      $(CAMERA_PATH)/configs/camera/camxoverridesettings.txt:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camxoverridesettings.txt
 
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    $(CAMERA_PATH)/configs/vintf/misys_framework_matrix.xml
-
 # Camera Extensions
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.camerax.extensions.enabled=true
@@ -77,30 +74,9 @@ endif
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
     $(CAMERA_PATH)/sepolicy/camera/private
 
-# Sepolicy MiSys
-BOARD_VENDOR_SEPOLICY_DIRS += \
-    $(CAMERA_PATH)/sepolicy/misys/vendor
-
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
-    $(CAMERA_PATH)/sepolicy/misys/private
-
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += \
-    $(CAMERA_PATH)/sepolicy/misys/public
-
 # Qualcomm Gralloc
 PRODUCT_PACKAGES += \
      gralloc.qcom
-
-# MiSys Java clients and JNI binding (not part of the boot classpath)
-PRODUCT_PACKAGES += xiaomi-misys
-
-# MiSys HIDL deps
-PRODUCT_PACKAGES += \
-    android.hidl.manager@1.0 \
-    android.hidl.manager@1.0.vendor \
-    android.hidl.memory.block@1.0 \
-    android.hidl.memory.block@1.0.vendor \
-    android.hidl.memory@1.0-impl
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
