@@ -1,0 +1,20 @@
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+java_library {
+    name: "xiaomi-camera-extensions",
+    installable: true,
+    platform_apis: true,
+    srcs: [
+        "src/**/*.java",
+        "//frameworks/ex/camera2/extensions/stub:camera-extensions-basic-contracts",
+    ],
+    required: ["xiaomi-camera-extensions.xml"],
+}
+
+prebuilt_etc {
+    name: "xiaomi-camera-extensions.xml",
+    src: "xiaomi-camera-extensions.xml",
+    sub_dir: "permissions",
+}

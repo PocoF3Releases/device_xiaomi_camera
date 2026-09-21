@@ -17,7 +17,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
      $(CAMERA_PATH)/configs/camera/camxoverridesettings.txt:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camxoverridesettings.txt
 
-# Camera Extensions
+# Camera Extensions: standard provider plus the separately packaged Xiaomi SDK.
+PRODUCT_PACKAGES += \
+    xiaomi-camera-extensions
+
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.camerax.extensions.enabled=true
 

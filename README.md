@@ -21,7 +21,7 @@ The camera integration is intentionally kept here rather than spread across
 the device-common tree. It currently provides:
 
 - Xiaomi Camera permissions, default permissions and sysconfig entries
-- CameraX vendor-extension configuration and CamX override settings
+- CameraX basic extension provider and CamX override settings
 - alioth / aliothin device-feature configuration
 - Camera SELinux policy
 - Camera compatibility shims and vendor-library symlinks
@@ -81,3 +81,48 @@ miuicamera.mk Main product integration entry point
 Proprietary Xiaomi Camera prebuilts:
 
 https://gitlab.com/johnmart19/vendor_xiaomi_camera
+
+## Android 17 CameraX extension provider
+
+`extensions/` installs `xiaomi-camera-extensions.jar`, registered under the standard
+`androidx.camera.extensions.impl` shared-library name. CameraExtensionsProxy and
+CameraX clients discover this library without adding it to the boot classpath.
+The product also needs the `camera-extensions-basic-contracts` filegroup added to
+`frameworks/ex/camera2/extensions/stub/Android.bp`; it shares the platform API
+interfaces, not AOSP's demonstration/no-op effect implementations.
+
+The similarly named proprietary `camerax-vendor-extensions.jar` is a separate
+Xiaomi SDK (`Camera2VendorEx`), not an AndroidX extension implementation. It remains
+packaged for compatibility. On the inspected phone it was boot-mapped but lacked
+AndroidX entry points. Its MiCameraDeviceWrapper also accepts an empty MiviInfo
+provider response without falling back to the HAL capability table. The standard
+provider therefore reads the CamX capability table directly; it does not depend
+on MiuiCamera's content provider or make that SDK's methods execute.
+
+The basic API version is 1.1. HDR and Night submit one JPEG capture request with
+CamX session operation and algorithm controls; multi-frame processing belongs to
+the HAL. Preview uses the same operation with the capture effect disabled. No
+software tone-map/pass-through sample is advertised as HDR. Availability requires
+CamX capability version 1.0, the enabled flag, a valid six-record table, a matching
+camera role/algorithm bit, the session-operation key and JPEG/private outputs.
+NORMAL record 0 selects operation 65290 for HDR; SUPER_NIGHT record 2 selects
+65292 for Night. The byte-valued effect tags match the installed HAL registry.
+This HAL omits those effect tags from availableRequestKeys, so their capability
+is gated by the role's algorithm bit rather than that incomplete list.
+Auto, Beauty and Bokeh are explicitly unavailable; advanced processing, postview
+and progress reporting are not advertised.
+
+Validation on 2026-09-21: device metadata reports HDR for roles 0, 1 and 21;
+Night for roles 0 and 1, but not 21. This validates the capability input only.
+The new provider has NOT been compiled, installed or capture-tested, per the
+no-rebuild instruction. Session creation, processed JPEG correctness, app
+compatibility and resource cleanup must be checked after the next user build.
+Search logcat for `XiaomiCameraExtensions` to distinguish real session startup
+from simply finding the JAR in a process mapping. Test each exposed mode in a
+CameraX/Camera2 Extensions client, capture/save/reopen the JPEG, switch cameras,
+close/reopen sessions and compare with the unextended capture in the same scene.
+
+When updating blobs, recheck the version/table layout, camera roles, vendor tag
+types and operation mapping against the new HAL. Do not loosen capability checks
+just to expose modes. When updating the framework extension API, review the shared
+contracts before increasing the advertised API version.
