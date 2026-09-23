@@ -1,0 +1,2 @@
+# Miui Camera
+sys.camera.miui.apk                u:object_r:miui_camera_apk_prop:s0 exact string
