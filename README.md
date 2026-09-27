@@ -34,13 +34,13 @@ the device-common tree. It currently provides:
 ### 1. Clone the device-side camera integration
 
 ```bash
-git clone https://github.com/PocoF3Releases/device_xiaomi_camera.git -b aosp-17 device/xiaomi/camera
+git clone https://github.com/PocoF3Releases/device_xiaomi_camera.git -b aosp-16 device/xiaomi/camera
 ```
 
 ### 2. Clone the companion proprietary vendor repository
 
 ```bash
-git clone https://gitlab.com/johnmart19/vendor_xiaomi_camera.git -b aosp-17 vendor/xiaomi/camera
+git clone https://gitlab.com/johnmart19/vendor_xiaomi_camera.git -b aosp-16 vendor/xiaomi/camera
 ```
 
 The vendor repository uses Git LFS. Ensure its prebuilt files are downloaded:
@@ -84,4 +84,4 @@ miuicamera.mk Main product integration entry point
 ## Companion repository
 
 [Ready-to-use APK and proprietary libraries on GitLab](https://gitlab.com/johnmart19/vendor_xiaomi_camera)
-— use the matching `aosp-17` branch.
+— use the matching `aosp-16` branch.
